@@ -1,0 +1,50 @@
+# C++ object files
+*.o
+*.obj
+
+# C++ compiled files
+*.exe
+*.out
+*.app
+
+# C++ static libraries
+*.lib
+*.a
+
+# C++ dynamic libraries
+*.dll
+*.so
+*.dylib
+
+# Debug files
+*.dSYM/
+*.stackdump
+
+# Compiled source
+*.com
+*.class
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Qt-specific
+*.pro.user
+*.moc
+
+# Other generated files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# IDE specific
+.vscode/
+.idea/
+*.sln
+*.vcxproj
+*.vcxproj.user
+*.DS_Store
