@@ -22,6 +22,7 @@ void task1() {
         ptr = (char*)malloc(n * sizeof(char));
         ptr = tmp_ptr;
     }
+    ptr[n] = '\0';
     
     findMaxWord(ptr, n, [ptr, n](int maxStartIndex, int maxWordLen) {
         memmove(&ptr[maxStartIndex], &ptr[maxStartIndex+maxWordLen], n - maxStartIndex - maxWordLen + 1);
@@ -50,6 +51,7 @@ void task2() {
         }
         ptr[countChar-1] = ch;
     }
+    ptr[countChar] = '\0';
 
     findMaxWord(ptr, countChar, [ptr, countChar](int maxStartIndex, int maxWordLen) {
         memmove(&ptr[maxStartIndex], &ptr[maxStartIndex+maxWordLen], countChar - maxStartIndex - maxWordLen + 1);
@@ -64,14 +66,34 @@ void task2() {
 
 void task3() {
 
-    FILE* file = fopen("someString.txt", "r");
-
     char* ptr;
     int n = 5; 
     int countChar = 0;
     ptr = (char*)calloc(n, sizeof(char)); 
 
     char ch;
+
+    while ((ch = getchar()) != EOF) {
+        countChar++;
+
+        if (countChar+1 > n) {
+            n+=5;
+            ptr = (char*)realloc(ptr, n);
+        }
+        ptr[countChar-1] = ch;
+    }
+    ptr[countChar] = '\0';
+
+    FILE* file0 = fopen("someString.txt", "w");
+    fputs(ptr, file0);
+    fclose(file0);
+    free(ptr);
+
+    FILE* file = fopen("someString.txt", "r");
+    n = 5; 
+    countChar = 0;
+    ptr = (char*)calloc(n, sizeof(char));
+
     while ((ch = fgetc(file)) != EOF) {
         countChar++;
 
@@ -81,6 +103,7 @@ void task3() {
         }
         ptr[countChar-1] = ch;
     }
+    ptr[countChar] = '\0';
 
     fclose(file);
 
