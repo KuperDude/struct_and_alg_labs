@@ -118,7 +118,7 @@ void task3() {
 	fclose(file2);
 }
 
-int main() {
-    task3();
-    return 0;
-}
+// int main() {
+//     task3();
+//     return 0;
+// }
